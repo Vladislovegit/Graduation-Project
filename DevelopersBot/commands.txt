@@ -1,5 +1,0 @@
-start - Authenticate in JIRA and TeamCity for further work.
-authenticate_teamcity - Authenticate in TeamCity
-authenticate_jira - Authenticate in JIRA
-help - List of all supported commands
-get_jira_projects - List of all projects in JIRA
