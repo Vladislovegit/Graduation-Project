@@ -1,6 +1,0 @@
-[4_5_2017_1:29:43] {SEVERE} IncomingMessageHandler - exception.IncorrectBotNameException: Incorrect bot name.
-	at utils.MessageUtil.parseMessage(MessageUtil.java:14)
-	at commands.CommandRecognizer.recognize(CommandRecognizer.java:18)
-	at handlers.IncomingMessageHandler.handle(IncomingMessageHandler.java:31)
-	at bot.BotHandler.onUpdateReceived(BotHandler.java:17)
-	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$HandlerThread.run(DefaultBotSession.java:274)
