@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hibernate.cfg.xml/Hibernate">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="bot">
+      <ObjectId>16394</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-05-04.01:26:26.280</IntrospectionTimestamp>
+      <IntrospectionStateNumber>967</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12381</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="application_project_application_project_id_seq">
+      <ObjectId>16532</ObjectId>
+      <StateNumber>910</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="10" parent="3" name="credentials_credentials_id_seq">
+      <ObjectId>16540</ObjectId>
+      <StateNumber>911</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="11" parent="3" name="jira_project_jira_project_id_seq">
+      <ObjectId>16551</ObjectId>
+      <StateNumber>912</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="12" parent="3" name="teamcity_project_configuratio_teamcity_project_configuratio_seq">
+      <ObjectId>16578</ObjectId>
+      <StateNumber>915</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="13" parent="3" name="teamcity_project_teamcity_project_id_seq">
+      <ObjectId>16567</ObjectId>
+      <StateNumber>914</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="14" parent="3" name="telegram_group_telegram_group_id_seq">
+      <ObjectId>16589</ObjectId>
+      <StateNumber>916</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="15" parent="3" name="telegram_lead_telegram_lead_id_seq">
+      <ObjectId>16597</ObjectId>
+      <StateNumber>917</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <table id="16" parent="3" name="application_project">
+      <ObjectId>16534</ObjectId>
+      <StateNumber>924</StateNumber>
+    </table>
+    <table id="17" parent="3" name="credentials">
+      <ObjectId>16542</ObjectId>
+      <StateNumber>922</StateNumber>
+    </table>
+    <table id="18" parent="3" name="jira_project">
+      <ObjectId>16553</ObjectId>
+      <StateNumber>967</StateNumber>
+    </table>
+    <table id="19" parent="3" name="last_build">
+      <ObjectId>16559</ObjectId>
+      <StateNumber>913</StateNumber>
+    </table>
+    <table id="20" parent="3" name="teamcity_project">
+      <ObjectId>16569</ObjectId>
+      <StateNumber>923</StateNumber>
+    </table>
+    <table id="21" parent="3" name="teamcity_project_configuration">
+      <ObjectId>16580</ObjectId>
+      <StateNumber>923</StateNumber>
+    </table>
+    <table id="22" parent="3" name="telegram_group">
+      <ObjectId>16591</ObjectId>
+      <StateNumber>924</StateNumber>
+    </table>
+    <table id="23" parent="3" name="telegram_lead">
+      <ObjectId>16599</ObjectId>
+      <StateNumber>918</StateNumber>
+    </table>
+    <column id="24" parent="16" name="application_project_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>910</StateNumber>
+      <DefaultExpression>nextval(&apos;application_project_application_project_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="25" parent="16" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>910</StateNumber>
+    </column>
+    <column id="26" parent="16" name="telegram_lead_id">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>910</StateNumber>
+    </column>
+    <index id="27" parent="16" name="application_project_pkey">
+      <ObjectId>16538</ObjectId>
+      <ColNames>application_project_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="16" name="application_project_pkey">
+      <ObjectId>16539</ObjectId>
+      <ColNames>application_project_id</ColNames>
+      <UnderlyingIndexName>application_project_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="16" name="fkm3mi52u3y55a94ejpmet2nirf">
+      <ObjectId>16605</ObjectId>
+      <ColNames>telegram_lead_id</ColNames>
+      <RefTableName>telegram_lead</RefTableName>
+      <RefKeyName>telegram_lead_pkey</RefKeyName>
+      <RefColNames>telegram_lead_id</RefColNames>
+    </foreign-key>
+    <column id="30" parent="17" name="credentials_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>911</StateNumber>
+      <DefaultExpression>nextval(&apos;credentials_credentials_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="31" parent="17" name="login">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>911</StateNumber>
+    </column>
+    <column id="32" parent="17" name="password">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>911</StateNumber>
+    </column>
+    <column id="33" parent="17" name="url">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>911</StateNumber>
+    </column>
+    <index id="34" parent="17" name="credentials_pkey">
+      <ObjectId>16549</ObjectId>
+      <ColNames>credentials_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="35" parent="17" name="credentials_pkey">
+      <ObjectId>16550</ObjectId>
+      <ColNames>credentials_id</ColNames>
+      <UnderlyingIndexName>credentials_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="18" name="jira_project_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>912</StateNumber>
+      <DefaultExpression>nextval(&apos;jira_project_jira_project_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="37" parent="18" name="jira_id">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>912</StateNumber>
+    </column>
+    <column id="38" parent="18" name="last_update">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>912</StateNumber>
+    </column>
+    <column id="39" parent="18" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>912</StateNumber>
+    </column>
+    <column id="40" parent="18" name="application_project_id">
+      <Position>5</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>912</StateNumber>
+    </column>
+    <column id="41" parent="18" name="credentials_id">
+      <Position>6</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>912</StateNumber>
+    </column>
+    <column id="42" parent="18" name="description">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+      <StateNumber>962</StateNumber>
+    </column>
+    <column id="43" parent="18" name="key">
+      <Position>8</Position>
+      <DataType>varchar(10)|0</DataType>
+      <StateNumber>967</StateNumber>
+    </column>
+    <index id="44" parent="18" name="jira_project_pkey">
+      <ObjectId>16557</ObjectId>
+      <ColNames>jira_project_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="18" name="jira_project_pkey">
+      <ObjectId>16558</ObjectId>
+      <ColNames>jira_project_id</ColNames>
+      <UnderlyingIndexName>jira_project_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="18" name="fkq91uva8q3yqki601vev6fhqyj">
+      <ObjectId>16610</ObjectId>
+      <ColNames>application_project_id</ColNames>
+      <RefTableName>application_project</RefTableName>
+      <RefKeyName>application_project_pkey</RefKeyName>
+      <RefColNames>application_project_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="47" parent="18" name="fkopgpm0n3hirfumfyx0odoaiq2">
+      <ObjectId>16615</ObjectId>
+      <ColNames>credentials_id</ColNames>
+      <RefTableName>credentials</RefTableName>
+      <RefKeyName>credentials_pkey</RefKeyName>
+      <RefColNames>credentials_id</RefColNames>
+    </foreign-key>
+    <column id="48" parent="19" name="build_type_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>913</StateNumber>
+    </column>
+    <column id="49" parent="19" name="message">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>913</StateNumber>
+    </column>
+    <column id="50" parent="19" name="notified">
+      <Position>3</Position>
+      <DataType>boolean|0</DataType>
+      <StateNumber>913</StateNumber>
+    </column>
+    <column id="51" parent="19" name="status">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>913</StateNumber>
+    </column>
+    <column id="52" parent="19" name="teamcity_id">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>913</StateNumber>
+    </column>
+    <index id="53" parent="19" name="last_build_pkey">
+      <ObjectId>16565</ObjectId>
+      <ColNames>build_type_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="19" name="last_build_pkey">
+      <ObjectId>16566</ObjectId>
+      <ColNames>build_type_id</ColNames>
+      <UnderlyingIndexName>last_build_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="20" name="teamcity_project_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>914</StateNumber>
+      <DefaultExpression>nextval(&apos;teamcity_project_teamcity_project_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="56" parent="20" name="description">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="57" parent="20" name="last_update">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="58" parent="20" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="59" parent="20" name="teamcity_id">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="60" parent="20" name="application_project_id">
+      <Position>6</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <column id="61" parent="20" name="credentials_id">
+      <Position>7</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>914</StateNumber>
+    </column>
+    <index id="62" parent="20" name="teamcity_project_pkey">
+      <ObjectId>16576</ObjectId>
+      <ColNames>teamcity_project_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="63" parent="20" name="teamcity_project_pkey">
+      <ObjectId>16577</ObjectId>
+      <ColNames>teamcity_project_id</ColNames>
+      <UnderlyingIndexName>teamcity_project_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="64" parent="20" name="fkqj1luqswn0g14c7oeeg49rdoa">
+      <ObjectId>16620</ObjectId>
+      <ColNames>application_project_id</ColNames>
+      <RefTableName>application_project</RefTableName>
+      <RefKeyName>application_project_pkey</RefKeyName>
+      <RefColNames>application_project_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="65" parent="20" name="fk3p1ltichmhu56ean37whw7qpb">
+      <ObjectId>16625</ObjectId>
+      <ColNames>credentials_id</ColNames>
+      <RefTableName>credentials</RefTableName>
+      <RefKeyName>credentials_pkey</RefKeyName>
+      <RefColNames>credentials_id</RefColNames>
+    </foreign-key>
+    <column id="66" parent="21" name="teamcity_project_configuration_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>915</StateNumber>
+      <DefaultExpression>nextval(&apos;teamcity_project_configuratio_teamcity_project_configuratio_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="67" parent="21" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>915</StateNumber>
+    </column>
+    <column id="68" parent="21" name="teamcity_id">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>915</StateNumber>
+    </column>
+    <column id="69" parent="21" name="teamcity_project_id">
+      <Position>4</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>915</StateNumber>
+    </column>
+    <index id="70" parent="21" name="teamcity_project_configuration_pkey">
+      <ObjectId>16587</ObjectId>
+      <ColNames>teamcity_project_configuration_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="71" parent="21" name="teamcity_project_configuration_pkey">
+      <ObjectId>16588</ObjectId>
+      <ColNames>teamcity_project_configuration_id</ColNames>
+      <UnderlyingIndexName>teamcity_project_configuration_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="72" parent="21" name="fke4yuwuf3cennix8xo3waxx52">
+      <ObjectId>16630</ObjectId>
+      <ColNames>teamcity_project_id</ColNames>
+      <RefTableName>teamcity_project</RefTableName>
+      <RefKeyName>teamcity_project_pkey</RefKeyName>
+      <RefColNames>teamcity_project_id</RefColNames>
+    </foreign-key>
+    <column id="73" parent="22" name="telegram_group_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>916</StateNumber>
+      <DefaultExpression>nextval(&apos;telegram_group_telegram_group_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="74" parent="22" name="is_authenticated_in_jira">
+      <Position>2</Position>
+      <DataType>boolean|0</DataType>
+      <StateNumber>916</StateNumber>
+    </column>
+    <column id="75" parent="22" name="is_authenticated_in_teamcity">
+      <Position>3</Position>
+      <DataType>boolean|0</DataType>
+      <StateNumber>916</StateNumber>
+    </column>
+    <column id="76" parent="22" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>916</StateNumber>
+    </column>
+    <column id="77" parent="22" name="telegram_group_chat_id">
+      <Position>5</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>916</StateNumber>
+    </column>
+    <column id="78" parent="22" name="application_project_id">
+      <Position>6</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>916</StateNumber>
+    </column>
+    <index id="79" parent="22" name="telegram_group_pkey">
+      <ObjectId>16595</ObjectId>
+      <ColNames>telegram_group_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="80" parent="22" name="telegram_group_pkey">
+      <ObjectId>16596</ObjectId>
+      <ColNames>telegram_group_id</ColNames>
+      <UnderlyingIndexName>telegram_group_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="22" name="fkhf51ei0pf5ah6yk3pk4mpdasj">
+      <ObjectId>16635</ObjectId>
+      <ColNames>application_project_id</ColNames>
+      <RefTableName>application_project</RefTableName>
+      <RefKeyName>application_project_pkey</RefKeyName>
+      <RefColNames>application_project_id</RefColNames>
+    </foreign-key>
+    <column id="82" parent="23" name="telegram_lead_id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>917</StateNumber>
+      <DefaultExpression>nextval(&apos;telegram_lead_telegram_lead_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="83" parent="23" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>917</StateNumber>
+    </column>
+    <column id="84" parent="23" name="telegram_id">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <StateNumber>917</StateNumber>
+    </column>
+    <index id="85" parent="23" name="telegram_lead_pkey">
+      <ObjectId>16603</ObjectId>
+      <ColNames>telegram_lead_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="86" parent="23" name="telegram_lead_pkey">
+      <ObjectId>16604</ObjectId>
+      <ColNames>telegram_lead_id</ColNames>
+      <UnderlyingIndexName>telegram_lead_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

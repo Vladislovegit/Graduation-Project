@@ -1,0 +1,3 @@
+[26_4_2017_23:21:16] {SEVERE} BOTSESSION - org.telegram.telegrambots.exceptions.TelegramApiRequestException: Error getting updates: [409] Conflict: terminated by other long poll or webhook
+	at org.telegram.telegrambots.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:119)
+	at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:208)
