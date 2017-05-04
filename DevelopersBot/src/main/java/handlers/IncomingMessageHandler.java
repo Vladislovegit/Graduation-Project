@@ -56,8 +56,6 @@ public class IncomingMessageHandler {
             TelegramGroup telegramGroup = new TelegramGroup();
             telegramGroup.setTelegramId(chat.getId());
             telegramGroup.setName(chat.getTitle());
-            telegramGroup.setAuthenticatedInJira(false);
-            telegramGroup.setAuthenticatedInTeamCity(false);
             ApplicationProject app = DaoFactory.getApplicationProjectDAO().getByName(BotConfig.get(BotConfig.PROJECT_NAME));
             telegramGroup.setProject(app);
             telegramGroupDao.insert(telegramGroup);

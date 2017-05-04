@@ -7,4 +7,5 @@ public interface CredentialsDao {
 
     Long insert(Credentials credentials) throws DAOException;
 
+    Credentials getJiraCredsByTelegramGroupId(Long telegramId) throws DAOException;
 }

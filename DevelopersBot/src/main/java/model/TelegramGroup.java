@@ -9,8 +9,8 @@ public class TelegramGroup {
     private Long telegramId;
     private String name;
     private ApplicationProject project;
-    private boolean isAuthenticatedInJira;
-    private boolean isAuthenticatedInTeamCity;
+    private Credentials jiraCreds;
+    private Credentials teamcityCreds;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,22 +51,24 @@ public class TelegramGroup {
         this.project = project;
     }
 
-    @Column(name = "is_authenticated_in_jira")
-    public boolean isAuthenticatedInJira() {
-        return isAuthenticatedInJira;
+    @ManyToOne
+    @JoinColumn(name = "jira_credentials_id")
+    public Credentials getJiraCreds() {
+        return jiraCreds;
     }
 
-    public void setAuthenticatedInJira(boolean authenticatedInJira) {
-        isAuthenticatedInJira = authenticatedInJira;
+    public void setJiraCreds(Credentials jiraCreds) {
+        this.jiraCreds = jiraCreds;
     }
 
-    @Column(name = "is_authenticated_in_teamcity")
-    public boolean isAuthenticatedInTeamCity() {
-        return isAuthenticatedInTeamCity;
+    @ManyToOne
+    @JoinColumn(name = "teamcity_credentials_id")
+    public Credentials getTeamcityCreds() {
+        return teamcityCreds;
     }
 
-    public void setAuthenticatedInTeamCity(boolean authenticatedInTeamCity) {
-        isAuthenticatedInTeamCity = authenticatedInTeamCity;
+    public void setTeamcityCreds(Credentials teamcityCreds) {
+        this.teamcityCreds = teamcityCreds;
     }
 
     @Override
@@ -76,8 +78,8 @@ public class TelegramGroup {
                 ", telegramId=" + telegramId +
                 ", name='" + name + '\'' +
                 ", project=" + project +
-                ", isAuthenticatedInJira=" + isAuthenticatedInJira +
-                ", isAuthenticatedInTeamCity=" + isAuthenticatedInTeamCity +
+                ", jiraCreds=" + jiraCreds +
+                ", teamcityCreds=" + teamcityCreds +
                 '}';
     }
 }

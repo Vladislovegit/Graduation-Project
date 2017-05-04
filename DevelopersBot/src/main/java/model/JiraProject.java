@@ -12,7 +12,6 @@ public class JiraProject {
     private String description;
     private String key;
     private ApplicationProject applicationProject;
-    private Credentials credentials;
     private Calendar lastUpdate;
 
     @Id
@@ -70,16 +69,6 @@ public class JiraProject {
 
     public void setApplicationProject(ApplicationProject applicationProject) {
         this.applicationProject = applicationProject;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "credentials_id")
-    public Credentials getCredentials() {
-        return credentials;
-    }
-
-    public void setCredentials(Credentials credentials) {
-        this.credentials = credentials;
     }
 
     @Column(name = "last_update")

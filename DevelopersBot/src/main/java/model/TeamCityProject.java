@@ -11,7 +11,6 @@ public class TeamCityProject {
     private String name;
     private String description;
     private ApplicationProject applicationProject;
-    private Credentials credentials;
     private Calendar lastUpdate;
 
     @Id
@@ -62,16 +61,6 @@ public class TeamCityProject {
         this.applicationProject = applicationProject;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "credentials_id")
-    public Credentials getCredentials() {
-        return credentials;
-    }
-
-    public void setCredentials(Credentials credentials) {
-        this.credentials = credentials;
-    }
-
     @Column(name = "last_update")
     @Temporal(TemporalType.TIMESTAMP)
     public Calendar getLastUpdate() {
@@ -90,7 +79,6 @@ public class TeamCityProject {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", applicationProject=" + applicationProject +
-                ", credentials=" + credentials +
                 ", lastUpdate=" + lastUpdate +
                 '}';
     }

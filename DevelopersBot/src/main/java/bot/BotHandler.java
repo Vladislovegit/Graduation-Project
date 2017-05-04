@@ -9,7 +9,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.logging.BotLogger;
 
 public class BotHandler extends TelegramLongPollingBot {
-    private static final String LOG_TAG = "DEVELOPERSBOT";
+    private static final String LOG_TAG = BotHandler.class.getSimpleName();
 
     @Override
     public void onUpdateReceived(Update update) {

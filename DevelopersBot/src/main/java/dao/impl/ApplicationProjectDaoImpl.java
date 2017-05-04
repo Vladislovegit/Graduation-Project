@@ -106,8 +106,8 @@ public class ApplicationProjectDaoImpl implements ApplicationProjectDao {
         ApplicationProject project;
         try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            project = (ApplicationProject) session.createQuery("select new ApplicationProject(project.id, project.name, project.lead) " +
-                    "from ApplicationProject project inner join TelegramGroup group on group.project = project where group.telegramId = :telegramId")
+            project = (ApplicationProject) session.createQuery("select project " +
+                    "from ApplicationProject project inner join TelegramGroup chat where chat.telegramId = :telegramId")
                     .setParameter("telegramId", telegramId)
                     .uniqueResult();
             transaction.commit();

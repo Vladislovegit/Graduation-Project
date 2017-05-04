@@ -21,6 +21,7 @@ import utils.MessageUtil;
 public class AuthenticateJiraCommand implements Command {
     private static final String LOG_TAG = AuthenticateJiraCommand.class.getSimpleName();
     private JiraAuthenticationController controller;
+    private Credentials credentials;
 
     public AuthenticateJiraCommand() {
     }
@@ -29,7 +30,7 @@ public class AuthenticateJiraCommand implements Command {
     public SendMessage execute(Message message) throws IncorrectBotNameException {
         SendMessage sendMessage = new SendMessage();
         String[] messageParts = MessageUtil.parseMessage(message);
-        Credentials creds = new Credentials();
+        credentials = new Credentials();
         switch (messageParts.length) {
             case 1:
                 sendMessage.setText("url login password");
@@ -41,11 +42,11 @@ public class AuthenticateJiraCommand implements Command {
                 sendMessage.setText("password");
                 break;
             case 4:
-                creds.setUrl(messageParts[1]);
-                creds.setLogin(messageParts[2]);
-                creds.setPassword(messageParts[3]);
+                credentials.setUrl(messageParts[1]);
+                credentials.setLogin(messageParts[2]);
+                credentials.setPassword(messageParts[3]);
 
-                controller = new JiraAuthenticationController(creds);
+                controller = new JiraAuthenticationController(credentials);
                 if (controller.isSuccess()) {
                     try {
                         saveData(message.getChatId());
@@ -66,11 +67,11 @@ public class AuthenticateJiraCommand implements Command {
 
     private void saveData(Long telegramChatId) throws DAOException, FailedAuthenticationException, JiraException {
         CredentialsDao credentialsDao = DaoFactory.getCredentialsDao();
-        credentialsDao.insert(controller.getCredentials());
+        credentialsDao.insert(credentials);
 
         TelegramGroupDao telegramGroupDao = DaoFactory.getTelegramGroupDao();
         TelegramGroup telegramGroup = telegramGroupDao.getByTelegramId(telegramChatId);
-        telegramGroup.setAuthenticatedInJira(true);
+        telegramGroup.setJiraCreds(credentials);
         telegramGroupDao.update(telegramGroup);
 
         JiraController jiraController = new JiraController(controller);

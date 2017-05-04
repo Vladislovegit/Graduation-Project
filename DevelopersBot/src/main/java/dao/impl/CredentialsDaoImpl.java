@@ -27,4 +27,24 @@ public class CredentialsDaoImpl implements CredentialsDao{
         }
         return id;
     }
+
+    @Override
+    public Credentials getJiraCredsByTelegramGroupId(Long telegramId) throws DAOException {
+        Transaction transaction = null;
+        Credentials credentials;
+
+        try (Session session = HibernateSessionFactory.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            credentials = (Credentials) session.createQuery("select creds from Credentials creds inner join TelegramGroup chat on creds = chat.jiraCreds where chat.telegramId = :telegramId")
+                    .setParameter("telegramId", telegramId)
+                    .uniqueResult();
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new DAOException(e);
+        }
+        return credentials;
+    }
 }

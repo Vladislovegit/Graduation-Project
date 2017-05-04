@@ -2,10 +2,12 @@ package commands.impl;
 
 import bot.BotStateManager;
 import commands.Command;
-import dao.DaoFactory;
 import exception.DAOException;
+import exception.FailedAuthenticationException;
 import exception.IncorrectBotNameException;
+import jira.JiraController;
 import model.JiraProject;
+import net.rcarz.jiraclient.JiraException;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.logging.BotLogger;
@@ -19,9 +21,8 @@ public class GetJiraProjectsCommand implements Command {
     public SendMessage execute(Message message) throws IncorrectBotNameException {
         SendMessage sendMessage = new SendMessage().enableHtml(true);
         try {
-//            JiraController controller = new JiraController(message.getChatId());
-//            List<JiraProject> projects = controller.getProjects();
-            List<JiraProject> projects = DaoFactory.getJiraProjectDao().getAll(message.getChatId());
+            JiraController controller = new JiraController(message.getChatId());
+            List<JiraProject> projects = controller.getProjects();
 
             StringBuilder stringBuilder = new StringBuilder("JIRA Projects: \n\n");
 
@@ -42,6 +43,10 @@ public class GetJiraProjectsCommand implements Command {
         } catch (DAOException e) {
             BotLogger.error(LOG_TAG, e);
             sendMessage.setChatId("Some errors occurred. Can't load JIRA projects. " + e.getMessage());
+        } catch (JiraException e) {
+            sendMessage.setChatId("Some errors occurred." + e.getMessage());
+        } catch (FailedAuthenticationException e) {
+            sendMessage.setChatId("Some errors occurred. Can't authenticate in JIRA. " + e.getMessage());
         }
 
         BotStateManager.resetState();
