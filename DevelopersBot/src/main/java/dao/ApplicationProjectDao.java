@@ -3,12 +3,7 @@ package dao;
 import exception.DAOException;
 import model.ApplicationProject;
 
-public interface ApplicationProjectDao {
-    Long insert(ApplicationProject project) throws DAOException;
-
-    void delete(ApplicationProject project) throws DAOException;
-
-    void update(ApplicationProject project) throws DAOException;
+public interface ApplicationProjectDao extends EntityDao<ApplicationProject>{
 
     Boolean exist(ApplicationProject project) throws DAOException;
 

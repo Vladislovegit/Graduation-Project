@@ -3,12 +3,7 @@ package dao;
 import exception.DAOException;
 import model.TelegramGroup;
 
-public interface TelegramGroupDao {
-    Long insert(TelegramGroup group) throws DAOException;
-
-    void delete(TelegramGroup group) throws DAOException;
-
-    void update(TelegramGroup group) throws DAOException;
+public interface TelegramGroupDao extends EntityDao<TelegramGroup> {
 
     Boolean exist(Long groupTelegramId) throws DAOException;
 

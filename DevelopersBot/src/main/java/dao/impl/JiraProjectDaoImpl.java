@@ -32,6 +32,16 @@ public class JiraProjectDaoImpl implements JiraProjectDao {
     }
 
     @Override
+    public void delete(JiraProject entity) throws DAOException {
+
+    }
+
+    @Override
+    public void update(JiraProject entity) throws DAOException {
+
+    }
+
+    @Override
     public void insertAll(List<JiraProject> projects) throws DAOException {
         Transaction transaction = null;
 

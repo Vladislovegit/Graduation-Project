@@ -29,6 +29,16 @@ public class CredentialsDaoImpl implements CredentialsDao{
     }
 
     @Override
+    public void delete(Credentials entity) throws DAOException {
+        
+    }
+
+    @Override
+    public void update(Credentials entity) throws DAOException {
+
+    }
+
+    @Override
     public Credentials getJiraCredsByTelegramGroupId(Long telegramId) throws DAOException {
         Transaction transaction = null;
         Credentials credentials;

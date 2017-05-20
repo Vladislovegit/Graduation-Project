@@ -10,4 +10,14 @@ public class TeamCityProjectDaoImpl implements TeamCityProjectDao {
     public Long insert(TeamCityProject project) throws DAOException {
         return null;
     }
+
+    @Override
+    public void delete(TeamCityProject entity) throws DAOException {
+
+    }
+
+    @Override
+    public void update(TeamCityProject entity) throws DAOException {
+
+    }
 }
